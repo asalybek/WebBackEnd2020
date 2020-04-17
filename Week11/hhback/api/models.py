@@ -3,9 +3,9 @@ from django.db import models
 
 class Company(models.Model):
     name = models.CharField(max_length=300)
-    description = models.TextField()
-    city = models.CharField(max_length=300)
-    address = models.TextField()
+    description = models.TextField(default="")
+    city = models.CharField(max_length=300, default="Almaty")
+    address = models.TextField(default="")
 
     def to_json(self):
         return {
@@ -19,7 +19,7 @@ class Company(models.Model):
 
 class Vacancy(models.Model):
     name = models.CharField(max_length=300)
-    description = models.TextField()
+    description = models.TextField(default="")
     salary = models.FloatField()
     company = models.ForeignKey(Company, on_delete=models.CASCADE,
                                 related_name='vacancies_list', null=True)
