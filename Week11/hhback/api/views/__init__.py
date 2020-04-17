@@ -1,0 +1,2 @@
+from .views_fbv import company_detail,company_list,company_vacancies,vacancy_list,vacancy_detail,vacancies_top_ten
+# test
